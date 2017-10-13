@@ -18,22 +18,26 @@ public class Main {
         get("/", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("viesti", "tervehdys");
-
+            map.put("opiskelijat", opiskelijaDao.findAll());
+            
             return new ModelAndView(map, "index");
         }, new ThymeleafTemplateEngine());
 
-        get("/opiskelijat", (req, res) -> {
+        get("/drinkit", (req, res) -> {
             HashMap map = new HashMap<>();
-            map.put("opiskelijat", opiskelijaDao.findAll());
-
-            return new ModelAndView(map, "opiskelijat");
+            return new ModelAndView(map, "drinkit");
+        }, new ThymeleafTemplateEngine());
+        
+                get("/raakaaineet", (req, res) -> {
+            HashMap map = new HashMap<>();
+            return new ModelAndView(map, "raakaaineet");
         }, new ThymeleafTemplateEngine());
 
-        get("/opiskelijat/:id", (req, res) -> {
+        get("/drinkit/:id", (req, res) -> {
             HashMap map = new HashMap<>();
             map.put("opiskelija", opiskelijaDao.findOne(Integer.parseInt(req.params("id"))));
 
-            return new ModelAndView(map, "opiskelija");
+            return new ModelAndView(map, "drinkki");
         }, new ThymeleafTemplateEngine());
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html>
 
     <head>
         <title>Otsikko</title>
@@ -10,7 +10,14 @@
         <h1>Heippa vaan!</h1>
 
         <p>Ja .. <span th:text="${viesti}">jotain?</span></p>
+		
+		<ol>
+            <li th:each="opiskelija: ${opiskelijat}">
+                <span th:text="${opiskelija.nimi}">opiskelijan nimi</span> <a th:href="${'/drinkit/' + opiskelija.id}">linkki</a>
+            </li>
+        </ol>
 
-        <p><a href="/opiskelijat">Tästä opiskelijalistaukseen.</a></p>
+        <p><a href="/drinkit">Add a drink</a></p>
+		<p><a href="/raakaaineet">Add or view ingredients</a></p>
     </body>
 </html>

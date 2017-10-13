@@ -1,0 +1,56 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html charset="UTF-8">
+
+<head>
+<meta charset="utf-8"/>
+  <title>Drinks</title>
+</head>
+<body>
+
+  <h2>Drinks</h2>
+
+  <ul>
+    <li><a href="2.html">Aurinkolasit</a> (<a href="2/poista">poista</a>)</li>
+    <li><a href="1.html">Mustikkaplorays</a> (<a href="1/poista">poista</a>)</li>
+  </ul>
+
+
+  <h4>Add new</h4>
+  
+  <form method="POST" action="">
+      Drinkin nimi:<br/>
+      <input type="text" name="aine"/><br/>
+      <input type="submit" value="Add"/>
+  </form>
+
+  <h4>Add ingredients</h4>
+
+  <form method="POST" action="">
+      Drink name:<br/>
+      <select name="smoothie">
+
+      </select>
+      <br/>
+      Ingredient to be added: <br/>
+      <select name="raakaAine">
+        <option name="1">Vesi</option>
+        <option name="2">Banaani</option>
+        <option name="...">...</option>
+      </select>
+      <br/>
+      Order<br/>
+      <input type="text"/><br/>
+      Amount<br/>
+      <input type="text"/><br/>
+      Instruction<br/>
+      <input type="text"/><br/>
+      <input type="submit" value="Add"/>
+  </form>
+
+  <ul>
+    <li>
+      <a href="../">To drinklist</a>
+    </li>
+  </ul>
+  </body>
+</html>

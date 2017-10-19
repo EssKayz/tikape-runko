@@ -1,23 +1,23 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html>
 
+<!-- (<a href="2/poista">poista</a>-->
+
     <head>
         <title>Otsikko</title>
         <meta charset="utf-8" />
     </head>
 
     <body>
-        <h1>Heippa vaan!</h1>
-
-        <p>Ja .. <span th:text="${viesti}">jotain?</span></p>
+        <h1>404 NOT FOUND</h1>
 		
-		<ol>
-            <li th:each="opiskelija: ${opiskelijat}">
-                <span th:text="${opiskelija.nimi}">opiskelijan nimi</span> <a th:href="${'/drinkit/' + opiskelija.id}">linkki</a>
+		<ul>
+            <li th:each="drinkki: ${drinkit}">
+			<a th:href="${'/drinkit/' + drinkki.id}" th:text="${drinkki.nimi} + ' - '">Drinkin nimi</a><Button action="/poista">Poista</Button>
             </li>
-        </ol>
+        </ul>
 
-        <p><a href="/drinkit">Add a drink</a></p>
+        <p><a href="/drinkit">Add a drink and manage ingredients</a></p>
 		<p><a href="/raakaaineet">Add or view ingredients</a></p>
     </body>
 </html>

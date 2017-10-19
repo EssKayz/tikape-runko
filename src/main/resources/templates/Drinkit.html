@@ -3,43 +3,43 @@
 
 <head>
 <meta charset="utf-8"/>
-  <title>Drinks</title>
+  <title>Drink adding</title>
 </head>
 <body>
 
   <h2>Drinks</h2>
 
-  <ul>
-    <li><a href="2.html">Aurinkolasit</a> (<a href="2/poista">poista</a>)</li>
-    <li><a href="1.html">Mustikkaplorays</a> (<a href="1/poista">poista</a>)</li>
-  </ul>
-
-
-  <h4>Add new</h4>
+  <h4>Add a new drink</h4>
   
-  <form method="POST" action="">
-      Drinkin nimi:<br/>
-      <input type="text" name="aine"/><br/>
+  <form method="POST" action="/drinkit">
+      Drink name:<br/>
+      <input type="text" name="name"/><br/>
       <input type="submit" value="Add"/>
   </form>
 
   <h4>Add ingredients</h4>
 
-  <form method="POST" action="">
+  <form method="POST" action="/">
       Drink name:<br/>
-      <select name="smoothie">
-
+      <select name="drinkki">
+            <option th:each="drinkki: ${drinkit}"
+			th:value="${drinkki}"
+			th:text="${drinkki}">
+			</option>
       </select>
       <br/>
-      Ingredient to be added: <br/>
-      <select name="raakaAine">
-        <option name="1">Vesi</option>
-        <option name="2">Banaani</option>
-        <option name="...">...</option>
+	  
+      Ingredient to be added:
+	  <br/>
+      <select name="raakaaine">
+            <option th:each="raakaaine: ${raakaaineet}"
+			th:value="${raakaaine}"
+			th:text="${raakaaine}">
+			</option>
       </select>
+	  
+	  
       <br/>
-      Order<br/>
-      <input type="text"/><br/>
       Amount<br/>
       <input type="text"/><br/>
       Instruction<br/>

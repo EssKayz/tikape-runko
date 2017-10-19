@@ -11,20 +11,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import tikape.runko.domain.Opiskelija;
+import tikape.runko.domain.Drinkki;
 
-public class OpiskelijaDao implements Dao<Opiskelija, Integer> {
+public class DrinkkiDao implements Dao<Drinkki, Integer> {
 
     private Database database;
 
-    public OpiskelijaDao(Database database) {
+    public DrinkkiDao(Database database) {
         this.database = database;
     }
 
     @Override
-    public Opiskelija findOne(Integer key) throws SQLException {
+    public Drinkki findOne(Integer key) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Opiskelija WHERE id = ?");
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Drinkki WHERE id = ?");
         stmt.setObject(1, key);
 
         ResultSet rs = stmt.executeQuery();
@@ -36,7 +36,7 @@ public class OpiskelijaDao implements Dao<Opiskelija, Integer> {
         Integer id = rs.getInt("id");
         String nimi = rs.getString("nimi");
 
-        Opiskelija o = new Opiskelija(id, nimi);
+        Drinkki o = new Drinkki(id, nimi);
 
         rs.close();
         stmt.close();
@@ -46,25 +46,34 @@ public class OpiskelijaDao implements Dao<Opiskelija, Integer> {
     }
 
     @Override
-    public List<Opiskelija> findAll() throws SQLException {
+    public List<Drinkki> findAll() throws SQLException {
 
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Opiskelija");
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Drinkki");
 
         ResultSet rs = stmt.executeQuery();
-        List<Opiskelija> opiskelijat = new ArrayList<>();
+        List<Drinkki> drinkit = new ArrayList<>();
         while (rs.next()) {
             Integer id = rs.getInt("id");
             String nimi = rs.getString("nimi");
 
-            opiskelijat.add(new Opiskelija(id, nimi));
+            drinkit.add(new Drinkki(id, nimi));
         }
 
         rs.close();
         stmt.close();
         connection.close();
 
-        return opiskelijat;
+        return drinkit;
+    }
+    
+    public void addDrink(String name) throws SQLException{
+       Connection con = database.getConnection();
+       PreparedStatement stmt = con.prepareStatement("INSERT INTO Drinkki(nimi) VALUES (?);");
+       stmt.setString(1, name);
+       stmt.executeUpdate();
+       stmt.close();
+       con.close();
     }
 
     @Override

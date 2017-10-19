@@ -1,11 +1,11 @@
 package tikape.runko.domain;
 
-public class Opiskelija {
+public class RaakaAine {
 
     private Integer id;
     private String nimi;
 
-    public Opiskelija(Integer id, String nimi) {
+    public RaakaAine(Integer id, String nimi) {
         this.id = id;
         this.nimi = nimi;
     }
@@ -25,5 +25,12 @@ public class Opiskelija {
     public void setNimi(String nimi) {
         this.nimi = nimi;
     }
+    
+    @Override
+    public String toString(){
+        return this.nimi;
+    }
+    
+
 
 }

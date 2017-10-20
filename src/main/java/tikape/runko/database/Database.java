@@ -45,15 +45,6 @@ public class Database {
                 + "(fk_drinkki_id integer, fk_raakaAine_id integer, ohje nChar(255), maara nChar(255), "
                 + "FOREIGN KEY(fk_drinkki_id) REFERENCES Drinkki(id), FOREIGN KEY(fk_raakaAine_id) REFERENCES RaakaAine(id));");
 
-        lista.add("INSERT INTO Drinkki (nimi) VALUES ('NullPointerException');");
-        lista.add("INSERT INTO Drinkki (nimi) VALUES ('406 Not acceptable');");
-        lista.add("INSERT INTO Drinkki (nimi) VALUES ('404 Not found');");
-        lista.add("INSERT INTO Drinkki (nimi) VALUES ('403 Forbidden');");
-        lista.add("INSERT INTO Drinkki (nimi) VALUES ('401 Unauthorized');");
-        
-         lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Java.SQLite');");
-         lista.add("INSERT INTO RaakaAine (nimi) VALUES ('Drop TABLE (RaakaAine);');");
-
         return lista;
     }
 }

@@ -11,7 +11,7 @@
 
   <h4>Add a new drink</h4>
   
-  <form method="POST" action="/drinkit">
+  <form method="POST" action="/addDrink">
       Drink name:<br/>
       <input type="text" name="name"/><br/>
       <input type="submit" value="Add"/>
@@ -19,7 +19,7 @@
 
   <h4>Add ingredients</h4>
 
-  <form method="POST" action="/">
+  <form method="POST" action="/addRawIngredient">
       Drink name:<br/>
       <select name="drinkki">
             <option th:each="drinkki: ${drinkit}"
@@ -41,15 +41,15 @@
 	  
       <br/>
       Amount<br/>
-      <input type="text"/><br/>
+      <input type="text" name="amount"/><br/>
       Instruction<br/>
-      <input type="text"/><br/>
+      <input type="text" name="instruction"/><br/>
       <input type="submit" value="Add"/>
   </form>
 
   <ul>
     <li>
-      <a href="../">To drinklist</a>
+      <a href="../">Back to drinklist</a>
     </li>
   </ul>
   </body>

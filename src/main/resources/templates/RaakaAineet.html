@@ -1,23 +1,23 @@
 <html>
 <head>
-  <title>Raw ingredients</title>
+  <title>Ingredients</title>
 </head>
 <body>
-  <h2>Raaka-aineet</h2>
+  <h2>Ingredients</h2>
   
   		<ul>
             <li th:each="raakaaine: ${raakaaineet}">
-                <span th:value="${raakaaine}" th:text="${raakaaine.nimi}">drinkin nimi</span> 
-				<Button action="/poista" method="POST">
-				Poista
-				</Button>
+                <span th:value="${raakaaine}" th:text="${raakaaine.nimi}"></span> 
+			<form style="display: inline;" method ="POST" action="/poistaRaakaAine">
+				<Button name="id" type="submit" th:text="Remove" th:value="${raakaaine.id}"></Button>
+		    </form>
             </li>
         </ul>
 
-  <h4>Lisää uusi raaka-aine</h4>
+  <h4>Add ingredient :</h4>
   
   <form method="POST" action="/raakaaineet">
-      Raaka-aineen nimi:<br/>
+      Name of ingredient:<br/>
       <input type="text" name="name"/><br/>
       <input type="submit" value="Add"/>
   </form>

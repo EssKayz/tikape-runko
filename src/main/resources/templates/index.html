@@ -4,16 +4,19 @@
 <!-- (<a href="2/poista">poista</a>-->
 
     <head>
-        <title>Otsikko</title>
+        <title>Unorthodox Drinklist</title>
         <meta charset="utf-8" />
     </head>
 
     <body>
-        <h1>404 NOT FOUND</h1>
+        <h1>404 NOT FOUND :< </h1>
 		
 		<ul>
             <li th:each="drinkki: ${drinkit}">
-			<a th:href="${'/drinkit/' + drinkki.id}" th:text="${drinkki.nimi} + ' - '">Drinkin nimi</a><Button action="/poista">Poista</Button>
+			<a th:href="${'/drinkit/' + drinkki.id}" th:text="${drinkki.nimi} + ' - '">Drinkin nimi</a>
+			<form style="display: inline;" method ="POST" action="/poistaDrinkki">
+				<Button name="id" type="submit" th:text="remove" th:value="${drinkki.id}"></Button>
+		    </form>
             </li>
         </ul>
 
